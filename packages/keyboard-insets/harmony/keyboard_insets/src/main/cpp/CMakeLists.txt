@@ -8,7 +8,7 @@ file(GLOB rnoh_keyboard_insets_SRC CONFIGURE_DEPENDS *.cpp)
 add_library(rnoh__keyboard_insets SHARED
     ${rnoh_keyboard_insets_SRC}
     ${rnoh_keyboard_insets_generated_SRC})
-target_include_directories(rnoh_keyboard_insets PUBLIC
+target_include_directories(rnoh__keyboard_insets PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${rnoh_keyboard_insets_generated_dir})
-target_link_libraries(rnoh_keyboard_insets PUBLIC rnoh)
+target_link_libraries(rnoh__keyboard_insets PUBLIC rnoh)

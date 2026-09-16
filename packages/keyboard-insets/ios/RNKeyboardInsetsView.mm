@@ -7,6 +7,7 @@
 #import <React/RCTLog.h>
 #import <React/RCTUIManager.h>
 #import <React/RCTScrollView.h>
+#import <math.h>
 
 #import <react/renderer/components/keyboardinsets/KeyboardInsetsViewComponentDescriptor.h>
 #import <react/renderer/components/keyboardinsets/KeyboardInsetsViewShadowNode.h>
@@ -47,6 +48,7 @@ using namespace facebook::react;
     CADisplayLink *_displayLink;
     UIView *_keyboardView;
     CGFloat _keyboardHeight;
+    BOOL _isKeyboardFrameChanging;
 
     RNKeyboardAutoHandler *_autoHandler;
     RNKeyboardManualHandler *_manualHandler;
@@ -153,6 +155,8 @@ using namespace facebook::react;
         [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidShowNotification object:nil];
         [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
         [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidHideNotification object:nil];
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillChangeFrameNotification object:nil];
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidChangeFrameNotification object:nil];
         [self stopWatchKeyboardTransition];
     }
 }
@@ -178,6 +182,16 @@ using namespace facebook::react;
                                                      selector:@selector(keyboardDidHide:)
                                                          name:UIKeyboardDidHideNotification
                                                        object:nil];
+
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                     selector:@selector(keyboardWillChangeFrame:)
+                                                         name:UIKeyboardWillChangeFrameNotification
+                                                       object:nil];
+
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                     selector:@selector(keyboardDidChangeFrame:)
+                                                         name:UIKeyboardDidChangeFrameNotification
+                                                       object:nil];
     }
 }
 
@@ -190,6 +204,7 @@ using namespace facebook::react;
 
     _focusView = focusView;
     _keyboardView = [RNKeyboardInsetsView findKeyboardView];
+    _isKeyboardFrameChanging = NO;
 
     NSDictionary *userInfo = [notification userInfo];
     CGRect keyboardRect = [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
@@ -214,6 +229,7 @@ using namespace facebook::react;
 
     RCTLogInfo(@"[KeyboardInsetsView] keyboardDidShow stopWatchKeyboardTransition");
     [self stopWatchKeyboardTransition];
+    _isKeyboardFrameChanging = NO;
 
     if ([self isAutoMode]) {
         UIView *focusView = [RNKeyboardInsetsView findFocusView:self];
@@ -243,6 +259,7 @@ using namespace facebook::react;
     }
 
     _keyboardView = [RNKeyboardInsetsView findKeyboardView];
+    _isKeyboardFrameChanging = NO;
 
     if ([self isAutoMode]) {
         [[self autoHandler] keyboardWillHide:_focusView keyboardHeight:_keyboardHeight];
@@ -265,11 +282,52 @@ using namespace facebook::react;
 
     RCTLogInfo(@"[KeyboardInsetsView] keyboardDidHide stopWatchKeyboardTransition");
     [self stopWatchKeyboardTransition];
+    _isKeyboardFrameChanging = NO;
 
     if ([self isAutoMode]) {
         [[self autoHandler] keyboardDidHide:focusView keyboardHeight:_keyboardHeight];
     } else {
         [[self manualHandler] keyboardDidHide:focusView keyboardHeight:_keyboardHeight];
+    }
+}
+
+- (void)keyboardWillChangeFrame:(NSNotification *)notification {
+    if (!_focusView || ![self shouldHandleKeyboardTransition:_focusView]) {
+        return;
+    }
+
+    CGRect keyboardRect = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    CGFloat keyboardHeight = CGRectGetHeight(keyboardRect);
+    if (keyboardHeight <= 0 || fabs(keyboardHeight - _keyboardHeight) < 0.5) {
+        return;
+    }
+
+    _keyboardHeight = keyboardHeight;
+    _keyboardView = [RNKeyboardInsetsView findKeyboardView];
+    _isKeyboardFrameChanging = YES;
+
+    if ([self isAutoMode]) {
+        [[self autoHandler] keyboardWillShow:_focusView keyboardHeight:keyboardHeight];
+    } else {
+        [[self manualHandler] keyboardWillShow:_focusView keyboardHeight:keyboardHeight];
+    }
+
+    RCTLogInfo(@"[KeyboardInsetsView] keyboardWillChangeFrame startWatchKeyboardTransition height: %f", keyboardHeight);
+    [self startWatchKeyboardTransition];
+}
+
+- (void)keyboardDidChangeFrame:(NSNotification *)notification {
+    if (!_isKeyboardFrameChanging || !_focusView || ![self shouldHandleKeyboardTransition:_focusView]) {
+        return;
+    }
+
+    _isKeyboardFrameChanging = NO;
+    [self stopWatchKeyboardTransition];
+
+    if ([self isAutoMode]) {
+        [[self autoHandler] keyboardDidShow:_focusView keyboardHeight:_keyboardHeight];
+    } else {
+        [[self manualHandler] keyboardDidShow:_focusView keyboardHeight:_keyboardHeight];
     }
 }
 

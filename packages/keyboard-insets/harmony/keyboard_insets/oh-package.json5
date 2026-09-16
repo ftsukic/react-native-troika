@@ -5,12 +5,10 @@
   "main": "Index.ets",
   "license": "MIT",
   "dependencies": {
-    "@rnoh/react-native-openharmony": "0.82.33"
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony"
   },
   "metadata": {
     "sourceRoots": ["./src/main"]
   },
-  "compatibleSdkVersion": 20,
-  "compatibleSdkType": "HarmonyOS",
   "obfuscated": false
 }

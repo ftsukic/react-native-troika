@@ -6,6 +6,9 @@ module.exports = {
 				componentDescriptors: ['KeyboardInsetsViewComponentDescriptor'],
 				cmakeListsPath: 'src/main/jni/CMakeLists.txt',
 			},
+			harmony: {
+				sourceDir: 'harmony/keyboard_insets',
+			},
 		},
 	},
 };

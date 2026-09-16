@@ -1,0 +1,12 @@
+{
+  "module": {
+    "name": "keyboard_insets",
+    "type": "har",
+    "deviceTypes": ["default", "tablet", "2in1"],
+    "packageName": "@rnoh/react-native-keyboard-insets",
+    "installationFree": false,
+    "virtualMachine": "ark13.0.1.0",
+    "compileMode": "esmodule",
+    "dependencies": []
+  }
+}

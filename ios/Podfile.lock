@@ -2497,7 +2497,7 @@ DEPENDENCIES:
   - RNFS (from `../node_modules/react-native-fs`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - "RNImageCrop (from `../node_modules/@sdcx/image-crop`)"
-  - "RNKeyboardInsets (from `../node_modules/@sdcx/keyboard-insets`)"
+  - "RNKeyboardInsets (from `../node_modules/@ftsukic/keyboard-insets`)"
   - "RNNestedScrollView (from `../node_modules/@sdcx/nested-scroll`)"
   - "RNOverlay (from `../node_modules/@sdcx/overlay`)"
   - "RNPullToRefresh (from `../node_modules/@sdcx/pull-to-refresh`)"
@@ -2691,7 +2691,7 @@ EXTERNAL SOURCES:
   RNImageCrop:
     :path: "../node_modules/@sdcx/image-crop"
   RNKeyboardInsets:
-    :path: "../node_modules/@sdcx/keyboard-insets"
+    :path: "../node_modules/@ftsukic/keyboard-insets"
   RNNestedScrollView:
     :path: "../node_modules/@sdcx/nested-scroll"
   RNOverlay:

@@ -20,7 +20,7 @@
 ## Installation
 
 ```bash
-yarn add @sdcx/keyboard-insets
+yarn add @ftsukic/keyboard-insets
 ```
 
 ### iOS
@@ -87,7 +87,7 @@ function App() {
 使用 `KeyboardInsetsView` 代替 `View` 作为容器，或者使用 `KeyboardInsetsView` 将 `ScrollView` 包裹起来。当键盘显示或隐藏时，`KeyboardInsetsView` 会自动调整自身的位置，以保证输入框不被键盘遮挡。
 
 ```tsx
-import { KeyboardInsetsView } from '@sdcx/keyboard-insets';
+import { KeyboardInsetsView } from '@ftsukic/keyboard-insets';
 
 function MyComponent() {
   return (
@@ -105,7 +105,7 @@ function MyComponent() {
 Support Nested.
 
 ```tsx
-import { KeyboardInsetsView } from '@sdcx/keyboard-insets';
+import { KeyboardInsetsView } from '@ftsukic/keyboard-insets';
 
 function MyComponent() {
   return (
@@ -148,7 +148,7 @@ function MyComponent() {
   为了方便用户编写 `onKeyboard` 回调，keyboard-insets 提供了一个 `useKeyboard` hook，使用方法如下：
 
   ```tsx
-  import { useKeyboard } from '@sdcx/keyboard-insets'
+  import { useKeyboard } from '@ftsukic/keyboard-insets'
 
   function MyComponent() {
     const { keyboard, onKeyboard } = useKeyboard()
@@ -168,7 +168,7 @@ function MyComponent() {
   有时候你需要知道某个 `View` 距离屏幕四边的距离，这个时候就可以使用 `getEdgeInsetsForView` 方法。
 
   ```tsx
-  import { getEdgeInsetsForView } from '@sdcx/keyboard-insets';
+  import { getEdgeInsetsForView } from '@ftsukic/keyboard-insets';
 
   function MyComponent() {
     const inputRef = useRef<TextInput>(null);

@@ -8,7 +8,7 @@
 			"@sdcx/nested-scroll": ["./packages/nested-scroll/src"],
 			"@sdcx/pull-to-refresh": ["./packages/pull-to-refresh/src"],
 			"@sdcx/overlay": ["./packages/overlay/src"],
-			"@sdcx/keyboard-insets": ["./packages/keyboard-insets/src"],
+			"@ftsukic/keyboard-insets": ["./packages/keyboard-insets/src"],
 			"@sdcx/image-crop": ["./packages/image-crop/src"],
 			"@sdcx/wheel-picker": ["./packages/wheel-picker/src"]
 		},

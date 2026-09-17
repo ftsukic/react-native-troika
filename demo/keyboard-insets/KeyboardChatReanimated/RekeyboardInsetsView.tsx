@@ -6,7 +6,7 @@ import {
 	KeyboardStatusPayload,
 	KeyboardPositionPayload,
 	KeyboardInsetsViewNativeComponent,
-} from '@sdcx/keyboard-insets';
+} from '@ftsukic/keyboard-insets';
 
 import Reanimated, { AnimatedProps, useEvent, useHandler } from 'react-native-reanimated';
 import type { ViewProps } from 'react-native';

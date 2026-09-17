@@ -8,7 +8,7 @@
  * 3. offset 有效：点按钮的视觉位置即可触发 toast
  * 4. offset 无效：需要点比按钮更靠上/下的位置才能触发，或点不准
  */
-import { KeyboardInsetsView } from '@sdcx/keyboard-insets';
+import { KeyboardInsetsView } from '@ftsukic/keyboard-insets';
 import { withNavigationItem } from 'hybrid-navigation';
 import React, { useState } from 'react';
 import { StyleSheet, Text, TextInput, View, Pressable } from 'react-native';

@@ -19,7 +19,7 @@
 		"@sdcx/activity-indicator": "*",
 		"@sdcx/bottom-sheet": "*",
 		"@sdcx/image-crop": "*",
-		"@sdcx/keyboard-insets": "*",
+		"@ftsukic/keyboard-insets": "*",
 		"@sdcx/nested-scroll": "*",
 		"@sdcx/nested-scroll-webview": "*",
 		"@sdcx/overlay": "*",

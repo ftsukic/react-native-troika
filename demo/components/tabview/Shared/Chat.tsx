@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View, Image, Text, TextInput, ScrollView, StyleSheet } from 'react-native';
-import { KeyboardInsetsView } from '@sdcx/keyboard-insets';
+import { KeyboardInsetsView } from '@ftsukic/keyboard-insets';
 
 const MESSAGES = [
 	'okay',

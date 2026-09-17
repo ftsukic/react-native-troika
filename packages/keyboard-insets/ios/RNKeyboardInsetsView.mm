@@ -4,7 +4,6 @@
 #import "RNKeyboardStatusChangedEvent.h"
 #import "RNKeyboardPositionChangedEvent.h"
 
-#import <React/RCTLog.h>
 #import <React/RCTUIManager.h>
 #import <React/RCTScrollView.h>
 #import <math.h>
@@ -218,7 +217,6 @@ using namespace facebook::react;
         [[self manualHandler] keyboardWillShow:focusView keyboardHeight:keyboardHeight];
     }
 
-    RCTLogInfo(@"[KeyboardInsetsView] keyboardWillShow startWatchKeyboardTransition");
     [self startWatchKeyboardTransition];
 }
 
@@ -227,7 +225,6 @@ using namespace facebook::react;
         return;
     }
 
-    RCTLogInfo(@"[KeyboardInsetsView] keyboardDidShow stopWatchKeyboardTransition");
     [self stopWatchKeyboardTransition];
     _isKeyboardFrameChanging = NO;
 
@@ -267,7 +264,6 @@ using namespace facebook::react;
         [[self manualHandler] keyboardWillHide:_focusView keyboardHeight:_keyboardHeight];
     }
 
-    RCTLogInfo(@"[KeyboardInsetsView] keyboardWillHide startWatchKeyboardTransition");
     [self startWatchKeyboardTransition];
 }
 
@@ -280,7 +276,6 @@ using namespace facebook::react;
         return;
     }
 
-    RCTLogInfo(@"[KeyboardInsetsView] keyboardDidHide stopWatchKeyboardTransition");
     [self stopWatchKeyboardTransition];
     _isKeyboardFrameChanging = NO;
 
@@ -312,7 +307,6 @@ using namespace facebook::react;
         [[self manualHandler] keyboardWillShow:_focusView keyboardHeight:keyboardHeight];
     }
 
-    RCTLogInfo(@"[KeyboardInsetsView] keyboardWillChangeFrame startWatchKeyboardTransition height: %f", keyboardHeight);
     [self startWatchKeyboardTransition];
 }
 

@@ -1,6 +1,5 @@
 #import "RNKeyboardAutoHandler.h"
 
-#import <React/RCTLog.h>
 #import <React/RCTScrollViewComponentView.h>
 
 @interface RNKeyboardAutoHandler ()

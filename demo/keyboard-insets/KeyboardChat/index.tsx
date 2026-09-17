@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { Animated, Image, Pressable, ScrollView, Text, TextInput, View } from 'react-native';
 
 import { SafeAreaProvider, SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
-import { KeyboardInsetsView } from '@sdcx/keyboard-insets';
+import { KeyboardInsetsView } from '@ftsukic/keyboard-insets';
 import { withNavigationItem } from 'hybrid-navigation';
 
 import Message from './Message';

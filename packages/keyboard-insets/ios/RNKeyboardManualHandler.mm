@@ -1,7 +1,5 @@
 #import "RNKeyboardManualHandler.h"
 
-#import <React/RCTLog.h>
-
 @interface RNKeyboardManualHandler ()
 
 @property (nonatomic, weak) RNKeyboardInsetsView *view;
@@ -42,7 +40,6 @@
 }
 
 - (void)handleKeyboardTransition:(CGFloat)position {
-    RCTLogInfo(@"[KeyboardInsetsView] keyboard position: %f", position);
 	[self.view dispatchKeyboardPosition:position];
 }
 

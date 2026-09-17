@@ -1,4 +1,4 @@
-import { KeyboardInsetsView } from '@sdcx/keyboard-insets';
+import { KeyboardInsetsView } from '@ftsukic/keyboard-insets';
 import { useNavigator, withNavigationItem } from 'hybrid-navigation';
 import React, { useCallback, useState } from 'react';
 import { Platform, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';

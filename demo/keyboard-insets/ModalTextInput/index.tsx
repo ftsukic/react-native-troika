@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigator, withNavigationItem } from 'hybrid-navigation';
 import { StyleSheet, Text, View } from 'react-native';
-import { KeyboardInsetsView } from '@sdcx/keyboard-insets';
+import { KeyboardInsetsView } from '@ftsukic/keyboard-insets';
 import { Modal } from '../../components/Modal';
 import CodeInput from '../../components/CondeInput';
 import { ModalToolbar } from '../../components/ModalToolbar';

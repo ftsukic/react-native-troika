@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { useSharedValue } from 'react-native-reanimated';
-import { KeyboardPositionPayload, KeyboardStatusPayload } from '@sdcx/keyboard-insets';
+import { KeyboardPositionPayload, KeyboardStatusPayload } from '@ftsukic/keyboard-insets';
 
 export function useRekeyboard() {
 	const position = useSharedValue(0);

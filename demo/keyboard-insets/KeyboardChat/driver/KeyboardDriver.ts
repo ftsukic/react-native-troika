@@ -1,6 +1,6 @@
 import React from 'react';
 import { TextInput, Keyboard, Animated } from 'react-native';
-import { KeyboardState } from '@sdcx/keyboard-insets';
+import { KeyboardState } from '@ftsukic/keyboard-insets';
 import { Driver, DriverState } from './Driver';
 
 export class KeyboardDriver implements Driver {

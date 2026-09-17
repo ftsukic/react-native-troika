@@ -1,7 +1,7 @@
 {
   "name": "@rnoh/react-native-keyboard-insets",
-  "version": "1.0.5",
-  "description": "HarmonyOS native Fabric container for @sdcx/keyboard-insets",
+  "version": "1.0.6",
+  "description": "HarmonyOS native Fabric container for @ftsukic/keyboard-insets",
   "main": "Index.ets",
   "license": "MIT",
   "dependencies": {
